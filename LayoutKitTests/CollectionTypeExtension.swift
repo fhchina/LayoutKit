@@ -8,11 +8,6 @@
 
 
 extension CollectionType {
-    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    /// http://stackoverflow.com/questions/25329186/safe-bounds-checked-array-lookup-in-swift-through-optional-bindings
-    subscript (safe index: Index) -> Generator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
 
     /// Returns the only element in the collection.
     /// It returns nil if there is not exactly one element in the collection.

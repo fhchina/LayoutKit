@@ -24,6 +24,8 @@ class MenuViewController: UITableViewController {
         BackgroundMiniProfileViewController.self,
         BatchUpdatesCollectionViewController.self,
         BatchUpdatesTableViewController.self
+        TableLayoutViewController.self,
+        FlowLayoutViewController.self
     ]
 
     convenience init() {
