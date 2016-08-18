@@ -13,24 +13,32 @@ import LayoutKit
  A layout for an image that is loaded by URL.
  The size of the layout must be specified before the image is actually loaded.
  */
-class UrlImageLayout: SizeLayout<UrlImageView> {
+class UrlImageLayout: WrapperLayout<UrlImageView> {
 
     init(url: NSURL, size: CGSize) {
-        super.init(width: size.width, height: size.height, alignment: .center, flexibility: .inflexible, config: { imageView in
-            imageView.backgroundColor = UIColor.orangeColor()
-            imageView.url = url
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                guard let data = NSData(contentsOfURL: url) else {
-                    NSLog("failed to load image data \(url)")
-                    return
-                }
-                dispatch_async(dispatch_get_main_queue(), {
-                    if imageView.url == url {
-                        imageView.image = UIImage(data: data)
+        super.init(
+            layout: SizeLayout(
+                width: size.width,
+                height: size.height,
+                alignment: .center,
+                flexibility: .inflexible
+            ),
+            config: { imageView in
+                imageView.backgroundColor = UIColor.orangeColor()
+                imageView.url = url
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                    guard let data = NSData(contentsOfURL: url) else {
+                        NSLog("failed to load image data \(url)")
+                        return
                     }
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if imageView.url == url {
+                            imageView.image = UIImage(data: data)
+                        }
+                    })
                 })
-            })
-        })
+            }
+        )
     }
 }
 

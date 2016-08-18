@@ -12,7 +12,7 @@ import LayoutKit
 /**
  A layout that places a divider view in the spacing between the stack's sublayouts.
  */
-public class DividerStackLayout<DividerView: UIView>: StackLayout {
+public class DividerStackLayout<DividerView: UIView>: WrapperLayout<DividerView> {
 
     public init(stack: StackLayout, dividerConfig: DividerView -> Void) {
         let sublayouts: [Layout]
@@ -31,12 +31,16 @@ public class DividerStackLayout<DividerView: UIView>: StackLayout {
             sublayouts = stack.sublayouts
         }
         
-        super.init(axis: stack.axis,
-            spacing: 0,
-            distribution: stack.distribution,
-            alignment: stack.alignment,
-            flexibility: stack.flexibility,
-            sublayouts: sublayouts,
-            config: stack.config)
+        super.init(layout:
+            StackLayout(
+                axis: stack.axis,
+                spacing: 0,
+                distribution: stack.distribution,
+                alignment: stack.alignment,
+                flexibility: stack.flexibility,
+                sublayouts: sublayouts,
+                config: stack.config
+            )
+        )
     }
 }

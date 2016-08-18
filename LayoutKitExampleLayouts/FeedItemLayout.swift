@@ -12,7 +12,7 @@ import LayoutKit
 /**
  A layout that is similar to an item in the LinkedIn feed.
  */
-public class FeedItemLayout: InsetLayout {
+public class FeedItemLayout: WrapperLayout<UIView> {
 
     public init(actionText: String,
                 posterProfile: ProfileCardLayout,
@@ -60,25 +60,36 @@ public class FeedItemLayout: InsetLayout {
                 actorCommentLayout
             ]
         )
-        super.init(insets: EdgeInsets(top: 8, left: 8, bottom: 8, right: 8), sublayout: feedItem, config: { view in
-            view.backgroundColor = UIColor.whiteColor()
-        })
+        super.init(layout:
+            InsetLayout(
+                insets: EdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
+                sublayout: feedItem,
+                config: { view in
+                    view.backgroundColor = UIColor.whiteColor()
+                }
+            )
+        )
     }
 }
 
-public class ContentLayout: StackLayout {
+public class ContentLayout: WrapperLayout<UIView> {
 
     public init(title: String, domain: String) {
-        super.init(axis: .vertical, sublayouts: [
-            SizeLayout<UIImageView>(
-                size: CGSize(width: 350, height: 200),
-                alignment: Alignment(vertical: .top, horizontal: .fill),
-                config: { imageView in
-                    imageView.image = UIImage(named: "350x200.png")
-                }
-            ),
-            LabelLayout(text: title),
-            LabelLayout(text: domain)
-        ])
+        super.init(layout:
+            StackLayout(
+                axis: .vertical,
+                sublayouts: [
+                    SizeLayout<UIImageView>(
+                        size: CGSize(width: 350, height: 200),
+                        alignment: Alignment(vertical: .top, horizontal: .fill),
+                        config: { imageView in
+                            imageView.image = UIImage(named: "350x200.png")
+                        }
+                    ),
+                    LabelLayout(text: title),
+                    LabelLayout(text: domain)
+                ]
+            )
+        )
     }
 }

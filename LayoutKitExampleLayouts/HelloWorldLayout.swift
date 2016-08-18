@@ -11,27 +11,29 @@ import LayoutKit
 
 /**
  A simple hello world layout.
- 
+
  ```
  let helloView = HelloWorldLayout().arrangement().makeViews()
  ```
- 
+
  Compare to HelloWorldAutoLayout.swift
  */
-public class HelloWorldLayout: InsetLayout {
+public class HelloWorldLayout: WrapperLayout<UIView> {
 
     public init(text: String = "Hello World!") {
-        super.init(
-            insets: EdgeInsets(top: 4, left: 4, bottom: 4, right: 8),
-            sublayout: StackLayout(
-                axis: .horizontal,
-                spacing: 4,
-                sublayouts: [
-                    SizeLayout<UIImageView>(width: 50, height: 50, config: { imageView in
-                        imageView.image = UIImage(named: "earth.png")
-                    }),
-                    LabelLayout(text: text, alignment: .center)
-                ]
+        super.init(layout:
+            InsetLayout(
+                insets: EdgeInsets(top: 4, left: 4, bottom: 4, right: 8),
+                sublayout: StackLayout(
+                    axis: .horizontal,
+                    spacing: 4,
+                    sublayouts: [
+                        SizeLayout<UIImageView>(width: 50, height: 50, config: { imageView in
+                            imageView.image = UIImage(named: "earth.png")
+                        }),
+                        LabelLayout(text: text, alignment: .center)
+                    ]
+                )
             )
         )
     }

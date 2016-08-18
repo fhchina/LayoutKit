@@ -9,7 +9,7 @@
 import UIKit
 import LayoutKit
 
-public class SkillsCardLayout: InsetLayout {
+public class SkillsCardLayout: WrapperLayout<UIView> {
 
     public init(skill: String, endorsementCount: String, endorserProfileImageName: String) {
         let skillLabel = LabelLayout(
@@ -46,6 +46,11 @@ public class SkillsCardLayout: InsetLayout {
                 endorserImage,
             ]
         )
-        super.init(insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), sublayout: layout)
+        super.init(layout:
+            InsetLayout(
+                insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
+                sublayout: layout
+            )
+        )
     }
 }

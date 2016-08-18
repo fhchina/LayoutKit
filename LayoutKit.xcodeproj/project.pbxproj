@@ -161,6 +161,9 @@
 		0BCF24421D6502EA002A1B3E /* ReloadableViewLayoutAdapterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5803BF1D4018540094AB29 /* ReloadableViewLayoutAdapterTestCase.swift */; };
 		0BCF24431D6503CD002A1B3E /* NSIndexSetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5803C31D40440E0094AB29 /* NSIndexSetExtension.swift */; };
 		0BCF24441D65044A002A1B3E /* NSIndexSetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5803C31D40440E0094AB29 /* NSIndexSetExtension.swift */; };
+		0BCF24491D6565A8002A1B3E /* WrapperLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF24481D6565A8002A1B3E /* WrapperLayout.swift */; };
+		0BCF244A1D6565A8002A1B3E /* WrapperLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF24481D6565A8002A1B3E /* WrapperLayout.swift */; };
+		0BCF244B1D6565A8002A1B3E /* WrapperLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF24481D6565A8002A1B3E /* WrapperLayout.swift */; };
 		0BCF89F81CDD7201004C1B32 /* AlignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF89F71CDD7201004C1B32 /* AlignmentTests.swift */; };
 		0BD9EB381CEBD90900F09173 /* LayoutKitExampleLayouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD9EB311CEBD90800F09173 /* LayoutKitExampleLayouts.framework */; };
 		0BD9EB391CEBD90900F09173 /* LayoutKitExampleLayouts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD9EB311CEBD90800F09173 /* LayoutKitExampleLayouts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -320,6 +323,7 @@
 		0BAD242C1CD2DE6F00BBD2AF /* CollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTests.swift; sourceTree = "<group>"; };
 		0BAD242E1CD2E54900BBD2AF /* TableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTests.swift; sourceTree = "<group>"; };
 		0BBBB2481CF79B09005B2CE5 /* CircleImagePileLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImagePileLayout.swift; sourceTree = "<group>"; };
+		0BCF24481D6565A8002A1B3E /* WrapperLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperLayout.swift; sourceTree = "<group>"; };
 		0BCF89F71CDD7201004C1B32 /* AlignmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentTests.swift; sourceTree = "<group>"; };
 		0BD9EB311CEBD90800F09173 /* LayoutKitExampleLayouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LayoutKitExampleLayouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD9EB351CEBD90900F09173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 				0B3B17271CC58B34002127F0 /* LabelLayout.swift */,
 				0B3B17241CC58B34002127F0 /* SizeLayout.swift */,
 				0B3B17291CC58B34002127F0 /* StackLayout.swift */,
+				0BCF24481D6565A8002A1B3E /* WrapperLayout.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -973,6 +978,7 @@
 				0B2E75471D4083A800CD7336 /* BaseLayout.swift in Sources */,
 				0B2E75481D4083A800CD7336 /* InsetLayout.swift in Sources */,
 				0B2E75491D4083A800CD7336 /* LabelLayout.swift in Sources */,
+				0BCF244A1D6565A8002A1B3E /* WrapperLayout.swift in Sources */,
 				0B2E754A1D4083A800CD7336 /* SizeLayout.swift in Sources */,
 				0B2E754B1D4083A800CD7336 /* StackLayout.swift in Sources */,
 				0B2E754C1D4083A800CD7336 /* AxisSize.swift in Sources */,
@@ -1038,6 +1044,7 @@
 				0B51914E1D29239F00769358 /* BaseLayout.swift in Sources */,
 				0B51914F1D29239F00769358 /* StackLayout.swift in Sources */,
 				0B5191891D292A9100769358 /* AppKitSupport.swift in Sources */,
+				0BCF244B1D6565A8002A1B3E /* WrapperLayout.swift in Sources */,
 				0B5191571D29239F00769358 /* AxisSize.swift in Sources */,
 				0B5191581D29239F00769358 /* AxisFlexibility.swift in Sources */,
 				0BAB9E551D37F237004B9E44 /* ViewRecycler.swift in Sources */,
@@ -1099,6 +1106,7 @@
 				0B5803B91D3ED52B0094AB29 /* BatchUpdates.swift in Sources */,
 				0B638B501CDA7AAB004270F6 /* LayoutAdapterCollectionView.swift in Sources */,
 				0B3B173F1CC58B58002127F0 /* CGSizeExtension.swift in Sources */,
+				0BCF24491D6565A8002A1B3E /* WrapperLayout.swift in Sources */,
 				0B3B17391CC58B42002127F0 /* Alignment.swift in Sources */,
 				0BAAE1781CCD92D10046DF14 /* ReloadableViewLayoutAdapter+UITableView.swift in Sources */,
 				0B3B172D1CC58B34002127F0 /* SizeLayout.swift in Sources */,

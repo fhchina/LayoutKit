@@ -6,13 +6,15 @@
 // software distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-// ANY CHANGES TO THIS FILE SHOULD ALSO BE MADE IN `Documentation/docs/layouts.md`
+// ***********************************************************************************
+// * ANY CHANGES TO THIS FILE SHOULD ALSO BE MADE IN `Documentation/docs/layouts.md` *
+// ***********************************************************************************
 
 import UIKit
 import LayoutKit
 
 /// A small version of a LinkedIn profile.
-public class MiniProfileLayout: InsetLayout {
+public class MiniProfileLayout: WrapperLayout<UIView> {
 
     public init(imageName: String, name: String, headline: String) {
         let image = SizeLayout<UIImageView>(
@@ -38,19 +40,28 @@ public class MiniProfileLayout: InsetLayout {
             }
         )
 
-        super.init(
+        let labels = StackLayout(
+            axis: .vertical,
+            spacing: 2,
+            sublayouts: [nameLayout, headlineLayout]
+        )
+
+        let stackLayout = StackLayout(
+            axis: .horizontal,
+            spacing: 8,
+            sublayouts: [
+                image,
+                labels,
+            ]
+        )
+
+        let insetLayout = InsetLayout(
             insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
-            sublayout: StackLayout(
-                axis: .horizontal,
-                spacing: 8,
-                sublayouts: [
-                    image,
-                    StackLayout(axis: .vertical, spacing: 2, sublayouts: [nameLayout, headlineLayout])
-                ]
-            ),
+            sublayout: stackLayout,
             config: { view in
                 view.backgroundColor = UIColor.whiteColor()
             }
         )
+        super.init(layout: insetLayout)
     }
 }

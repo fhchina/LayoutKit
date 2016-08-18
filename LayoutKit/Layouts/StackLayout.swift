@@ -16,7 +16,7 @@ import CoreGraphics
  If this not enough space along the axis for all sublayouts then layouts with the highest flexibility are removed
  until there is enough space to posistion the remaining layouts.
  */
-public class StackLayout: BaseLayout<View> {
+final public class StackLayout: BaseLayout<View> {
 
     /// The axis along which sublayouts are stacked.
     public let axis: Axis

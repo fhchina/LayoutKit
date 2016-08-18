@@ -9,7 +9,7 @@
 import UIKit
 import LayoutKit
 
-public class ProfileCardLayout: StackLayout {
+public class ProfileCardLayout: WrapperLayout<UIView> {
 
     public init(name: String, connectionDegree: String, headline: String, timestamp: String, profileImageName: String) {
         let labelConfig = { (label: UILabel) in
@@ -44,7 +44,7 @@ public class ProfileCardLayout: StackLayout {
             }
         )
 
-        super.init(
+        let stack = StackLayout(
             axis: .horizontal,
             spacing: 4,
             sublayouts: [
@@ -52,5 +52,6 @@ public class ProfileCardLayout: StackLayout {
                 verticalLabelStack
             ]
         )
+        super.init(layout: stack)
     }
 }

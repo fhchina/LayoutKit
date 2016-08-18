@@ -438,12 +438,14 @@ class ReloadableViewLayoutAdapterTestCase: XCTestCase {
  A label layout that has an intrinsic size.
  We don't want these tests to depend on variable font sizes across screen dimensions.
  */
-private class TestLabelLayout: SizeLayout<UILabel> {
+private class TestLabelLayout: WrapperLayout<UILabel> {
     init(text: String, height: CGFloat) {
         super.init(
-            width: 101,
-            height: height,
-            alignment: .fill,
+            layout: SizeLayout(
+                width: 101,
+                height: height,
+                alignment: .fill
+            ),
             config: { label in
                 label.text = text
             }

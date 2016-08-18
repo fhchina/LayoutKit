@@ -12,17 +12,19 @@ import LayoutKit
 /**
  An image stacked on top of a label.
  */
-class LabeledImageLayout: StackLayout {
+class LabeledImageLayout: WrapperLayout<UIView> {
 
     init(imageUrl: NSURL, imageSize: CGSize, labelText: String) {
         let image = UrlImageLayout(url: imageUrl, size: imageSize)
         let label = LabelLayout(text: labelText, alignment: Alignment(vertical: .top, horizontal: .center))
-        super.init(
-            axis: .vertical,
-            spacing: 8,
-            distribution: .leading,
-            alignment: .fill,
-            sublayouts: [image, label]
+        super.init(layout:
+            StackLayout(
+                axis: .vertical,
+                spacing: 8,
+                distribution: .leading,
+                alignment: .fill,
+                sublayouts: [image, label]
+            )
         )
     }
 }

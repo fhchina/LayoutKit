@@ -11,7 +11,7 @@ import UIKit
 /**
  Layout for a UILabel.
  */
-public class LabelLayout: BaseLayout<UILabel>, ConfigurableLayout {
+final public class LabelLayout: BaseLayout<UILabel>, ConfigurableLayout {
 
     /// The types of text that a UILabel can display.
     public enum TextType {
